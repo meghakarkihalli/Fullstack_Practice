@@ -1,4 +1,3 @@
-# Tech Stack
-[React](https://reactjs.org/)
+# Tech Stack [React](https://reactjs.org/)
 
 Creating a platform for developers to connect.
