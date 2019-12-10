@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const gravatar = require("gravatar");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const config = require("config");
 const { check, validationResult } = require("express-validator");
 
 // Bringing in Users Schema
@@ -60,9 +62,22 @@ router.post(
       // save user to mongoDB
       await user.save();
 
-      // Return jsonwebtoken
+      const payload = {
+        user: {
+          id: user.id
+        }
+      };
 
-      res.send("User Registered");
+      // Return jsonwebtoken
+      jwt.sign(
+        payload,
+        config.get("jwtSecret"),
+        { expiresIn: 3600000 },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        }
+      ); // change to 36000
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server error");
