@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://megha123:megha123@techieconnect-wtuiv.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "mysecrettoken"
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "d355eafe8d5304472ffe",
+  "githubSecret": "f1e0fff36d6b72244f5a0efa5e080cb40ddd5e6d"
 }
